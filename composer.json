@@ -1,0 +1,41 @@
+{
+	"name": "evotodi/pdfreactor",
+	"description": "Library for the PDFreactor PHP wrapper",
+	"keywords": [
+		"pdf",
+		"pdfreactor"
+	],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Evotodi",
+			"email": "evotodi@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=7.0",
+		"evotodi/composer-downloads-plugin": "^3.1.0",
+		"civicrm/composer-compile-plugin": "^0.15.0"
+	},
+	"autoload": {
+		"classmap": [
+			"src/"
+		]
+	},
+	"extra": {
+		"downloads": {
+			"PDFreactorZip": {
+				"url": "https://www.pdfreactor.com/download/get/?product=pdfreactor&type=webservice_clients&jre=false",
+				"type": "archive",
+				"ext": "zip",
+				"path": "lib"
+			}
+		},
+		"compile-mode": "all",
+		"compile-passthru": "always",
+		"compile": [
+			{"run": "@sh cp lib/php/lib/* src/"},
+			{"run":  "@composer dump-autoload"}
+		]
+	}
+}
